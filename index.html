@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Trava Letras</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+    <!-- Canvas para confetes de vitória -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- Cabeçalho Principal -->
+    <header class="game-header">
+        <button id="btn-home-header" class="icon-btn" aria-label="Voltar às configurações" title="Configurações">🏠</button>
+        <h1 id="current-theme-display">Carregando tema...</h1>
+    </header>
+
+    <!-- Área Principal do Jogo -->
+    <main class="game-board">
+        <div id="cards-grid" class="cards-grid"></div>
+    </main>
+
+    <!-- Modal 1: Tela Inicial de Configuração -->
+    <div id="config-modal" class="modal-overlay active">
+        <div class="modal-content">
+            <h2>Trava Letras</h2>
+            
+            <div class="form-group">
+                <label for="theme-input">Tema da Rodada:</label>
+                <div class="input-with-btn">
+                    <!-- <input type="text" id="theme-input" placeholder="Digite ou sorteie um tema"> -->
+                    <!-- <select id="theme-select"></select> -->
+                    <div class="combobox-wrapper">
+                        <input type="text" id="theme-input" placeholder="Escolha ou digite um tema" autocomplete="off">
+                        <button type="button" id="btn-toggle-dropdown" class="dropdown-arrow-btn" aria-label="Abrir lista de temas" title="Ver lista de temas">▾</button>
+                        <ul id="theme-dropdown" class="combobox-dropdown" role="listbox"></ul>
+                    </div>
+                    <button type="button" id="btn-roll-theme" class="icon-btn" title="Sortear novo tema">🔄</button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="time-input">Tempo por jogada (segundos):</label>
+                <input type="number" id="time-input" value="10" min="3" max="120">
+            </div>
+
+            <div class="form-group checkbox-group">
+                <input type="checkbox" id="remove-kyw-checkbox" checked>
+                <label for="remove-kyw-checkbox">Remover letras K, Y e W</label>
+            </div>
+
+            <button id="btn-start-game" class="primary-btn">Iniciar</button>
+        </div>
+    </div>
+
+    <!-- Modal 2: Fim de Jogo (Tempo Esgotado ou Vitória) -->
+    <div id="gameover-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h2 id="gameover-title">Tempo esgotado!</h2>
+            <p id="gameover-subtitle">O que deseja fazer agora?</p>
+            <div class="modal-actions">
+                <button id="btn-gameover-home" class="action-btn secondary" title="Configurações">🏠 Início</button>
+                <button id="btn-gameover-restart" class="action-btn primary" title="Jogar novamente">🔄 Jogar de novo</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
