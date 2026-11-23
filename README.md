@@ -68,6 +68,57 @@ A lista base (`THEMES_LIST` em `main.js`) reúne dezenas de temas variados, orga
 
 ---
 
-## 🚀 Como Executar Localmente
+## 🛠️ Como Executar Localmente
 
-1. Clone o repositório ou baixe os arquivos do projeto para uma pasta no seu computador.
+Como a aplicação é 100% *client-side*, não é necessário instalar dependências do Node.js ou configurar banco de dados.
+
+### Passos:
+1. **Clone o repositório:**   
+2. **Acesse a pasta do projeto:**
+3. **Abra o jogo no navegador:**
+   - **Direto no navegador:** Dê um duplo clique no arquivo `index.html`, ou
+   - **Via VS Code:** Utilize a extensão **Live Server** no VS Code para rodar um servidor local em `http://127.0.0.1:5500`.
+   - **Via PowerShell (Python):**
+     ```powershell
+     cd "c:\taptap"
+     python -m http.server 8000
+     ```
+     *(e acessar `http://localhost:8000` no navegador)*
+---
+
+## 📂 Estrutura de Pastas
+
+```text
+taptap/
+├── index.html            # Interface principal do jogo e estrutura dos modais
+├── main.css              # Estilização completa, temas de cores e layout responsivo
+├── main.js               # Lógica do jogo, controle de modais e áudio
+├── site.webmanifest      # Manifesto de configuração PWA
+├── favicon.svg           # Ícone do projeto
+├── favicon-32x32.png     # Ícone do projeto
+├── favicon-180x180.png   # Ícone do projeto
+├── favicon-512x512.png   # Ícone do projeto
+└── README.md             # Documentação do repositório
+```
+
+---
+
+## 🤝 Contribuição
+
+Contribuições são super bem-vindas! Se você tem ideias para **novos temas**, sugestões diversas ou melhorias no algoritmo:
+
+1. Faça um **Fork** do repositório.
+2. Crie uma branch para a sua feature.
+3. Abra um **Pull Request** explicando as adições realizadas.
+
+---
+
+## 📜 Licença
+
+Este projeto está sob a licença **MIT**. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+---
+
+<p center="align">
+  Feito com ❤️ para animar viagens, encontros e <i>game nights</i>!
+</p>
