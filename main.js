@@ -131,6 +131,23 @@ const CARD_COLORS = [
 const FULL_ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 const EXCLUDED_LETTERS = ["K", "Y", "W"];
 
+const helpModal = document.getElementById("help-modal");
+const btnOpenHelp = document.getElementById("btn-open-help");
+const btnCloseHelp = document.getElementById("btn-close-help");
+const btnGameoverContinue = document.getElementById("btn-gameover-continue");
+
+function openHelpModal() {
+    closeThemeDropdown();
+    helpModal.classList.add("active");
+}
+
+function closeHelpModal() {
+    helpModal.classList.remove("active");
+}
+
+btnOpenHelp.addEventListener("click", openHelpModal);
+btnCloseHelp.addEventListener("click", closeHelpModal);
+
 // Estado do Jogo
 let usedThemes = [];
 let cardsState = []; // Array de objetos { letter, color, disabled }
@@ -390,6 +407,14 @@ function stopTimer() {
 
 // --- 4. FLUXO DE TELAS E FIM DE JOGO ---
 
+function continueGame() {
+    unlockAudio();
+    gameoverModal.classList.remove("active");
+    resetTimer();
+    startTimer();
+}
+btnGameoverContinue.addEventListener("click", continueGame);
+
 function openConfigModal() {
     stopTimer();
     gameoverModal.classList.remove("active");
@@ -428,6 +453,7 @@ function startGame(useNewRandomTheme = false) {
 function handleTimeOut() {
     gameoverTitle.textContent = "Tempo esgotado!";
     gameoverSubtitle.textContent = "Ninguém respondeu a tempo.";
+    btnGameoverContinue.style.display = "";
     gameoverModal.classList.add("active");
 }
 
@@ -436,6 +462,7 @@ function handleVictory() {
     triggerConfetti(3000);
     gameoverTitle.textContent = "Uau, vocês venceram!";
     gameoverSubtitle.textContent = "Todas as letras do alfabeto foram completadas!";
+    btnGameoverContinue.style.display = "none";
     gameoverModal.classList.add("active");
 }
 
@@ -605,5 +632,11 @@ themeInput.addEventListener("input", () => {
 document.addEventListener("click", (e) => {
     if (!e.target.closest(".combobox-wrapper")) {
         closeThemeDropdown();
+    }
+});
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && helpModal.classList.contains("active")) {
+        closeHelpModal();
     }
 });

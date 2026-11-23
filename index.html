@@ -3,9 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Trava Letras</title>
+    <title>Tap Tap</title>
     <link rel="stylesheet" href="main.css">
-    <link rel="icon" type="image/png" href="favicon.ico" sizes="any">
+    <!-- Ícone principal moderno (nítido em qualquer zoom) -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Fallback em PNG (32x32 ou 48x48 para navegadores mais antigos e Google) -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <!-- Ícone para iPhone/iPad quando salvam o site na tela inicial -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png" />
+    <!-- Seu PNG 512x512 entra no manifest.json (para Android e PWA) -->
+    <link rel="manifest" href="/site.webmanifest" />
 </head>
 <body>
 
@@ -26,7 +33,8 @@
     <!-- Modal 1: Tela Inicial de Configuração -->
     <div id="config-modal" class="modal-overlay active">
         <div class="modal-content">
-            <h2>Trava Letras</h2>
+            <button type="button" id="btn-open-help" class="help-top-btn" aria-label="Como jogar" title="Como jogar">❔</button>
+            <h2>Tap Tap</h2>
             
             <div class="form-group">
                 <label for="theme-input">Tema da Rodada:</label>
@@ -63,10 +71,28 @@
             <p id="gameover-subtitle">O que deseja fazer agora?</p>
             <div class="modal-actions">
                 <button id="btn-gameover-home" class="action-btn secondary" title="Configurações">🏠 Início</button>
+                <button id="btn-gameover-continue" class="action-btn continue" title="Continuar rodada">▶️ Continuar</button>
                 <button id="btn-gameover-restart" class="action-btn primary" title="Jogar novamente">🔄 Jogar de novo</button>
             </div>
         </div>
     </div>
+
+    <!-- Modal 3: Como Jogar / Ajuda -->
+    <div id="help-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="help-modal-title">
+        <div class="modal-content help-modal-content">
+            <h2 id="help-modal-title">Como Jogar</h2>
+            <p class="help-text">
+                Este é um jogo ideal para jogar em viagens, enquanto espera um pedido em um bar/restaurante, ou para aquecer antes de uma game night com a galera.
+            </p>
+            <p class="help-text">
+                Em duas ou mais pessoas, os jogadores falam, um por vez, uma palavra que combine com o <strong>tema da rodada</strong> antes que o tempo acabe. Assim que falar, a pessoa toca na <strong>letra inicial</strong> da palavra para travá-la e passar a vez — letras já travadas não valem. A partida termina quando sobrar apenas um jogador.
+            </p>
+            <p class="help-text">
+                Também dá para jogar <strong>sozinho</strong>, tentando encaixar palavras para cada letra do alfabeto antes de o relógio zerar.
+            </p>
+            <button type="button" id="btn-close-help" class="primary-btn">Voltar</button>
+        </div>
+    </div>    
 
     <script src="main.js"></script>
 </body>

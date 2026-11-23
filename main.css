@@ -207,6 +207,7 @@ body {
 }
 
 .modal-content {
+    position: relative;    
     background: var(--surface-color);
     border: 1px solid #323238;
     border-radius: 20px;
@@ -221,6 +222,52 @@ body {
     font-size: 1.75rem;
     margin-bottom: 20px;
     color: #fff;
+}
+
+.help-top-btn {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid #323238;
+    background: #29292e;
+    color: var(--text-color);
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.1s, background 0.2s;
+}
+
+.help-top-btn:hover {
+    background: #323238;
+}
+
+.help-top-btn:active {
+    transform: scale(0.92);
+}
+
+#help-modal {
+    z-index: 150;
+}
+
+.help-modal-content {
+    text-align: left;
+}
+
+.help-modal-content h2 {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.help-text {
+    font-size: 0.98rem;
+    line-height: 1.55;
+    color: #e4e4e7;
+    margin-bottom: 14px;
 }
 
 .form-group {
@@ -300,19 +347,29 @@ select:focus {
 
 .modal-actions {
     display: flex;
-    gap: 12px;
+    flex-wrap: wrap;
+    gap: 10px;
     margin-top: 24px;
 }
 
 .action-btn {
-    flex: 1;
-    padding: 14px 10px;
+    flex: 1 1 auto;
+    min-width: 110px;
+    padding: 13px 10px;
     border: none;
     border-radius: 12px;
-    font-size: 1rem;
+    font-size: 0.98rem;
     font-weight: 700;
     cursor: pointer;
     color: #fff;
+}
+
+.action-btn.continue {
+    background: #16a34a;
+}
+
+.action-btn.continue:hover {
+    background: #15803d;
 }
 
 .action-btn.primary {
